@@ -264,18 +264,6 @@ Cache Layer (Redis):
 4. **Progressive Verification**: Start with small validator set, expand if disputed
 5. **Box Storage**: Overcome 64KB contract limit with unlimited boxes
 
-### 5.3 Benchmarks
-
-```
-Metric                  | Target    | Achieved
-------------------------|-----------|----------
-Claim Submission        | < 5 sec   | 3.7 sec
-Vote Recording          | < 5 sec   | 3.7 sec
-Market Order            | < 5 sec   | 3.7 sec
-Query Performance       | < 100ms   | 47ms
-Concurrent Users        | 100,000   | 150,000
-Daily Claims            | 1,000,000 | 1,200,000
-Storage Cost per Claim  | < $0.01   | $0.007
 ```
 
 ---
