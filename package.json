@@ -1,0 +1,44 @@
+{
+  "name": "defacto-protocol",
+  "version": "0.1.0",
+  "description": "Decentralized Truth Protocol on Algorand",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "./scripts/dev.sh",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:api": "cd api && uvicorn src.main:app --reload --port 8000",
+    "dev:ml": "cd ml-service && uvicorn src.main:app --reload --port 8001",
+    "dev:contracts": "cd contracts && algokit compile --watch",
+    "test": "./scripts/test.sh",
+    "test:frontend": "cd frontend && npm test",
+    "test:api": "cd api && pytest",
+    "test:contracts": "cd contracts && pytest",
+    "test:ml": "cd ml-service && pytest",
+    "lint": "npm run lint:frontend && npm run lint:python",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:python": "ruff check . && black --check .",
+    "format": "npm run format:frontend && npm run format:python",
+    "format:frontend": "cd frontend && npm run format",
+    "format:python": "black .",
+    "setup": "./scripts/setup.sh",
+    "clean": "./scripts/clean.sh",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "algokit:start": "algokit localnet start",
+    "algokit:stop": "algokit localnet stop",
+    "algokit:reset": "algokit localnet reset"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

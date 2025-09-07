@@ -1,0 +1,27 @@
+{
+  "name": "localnet",
+  "kind": "localnet",
+  "algod": {
+    "url": "http://localhost:4001",
+    "token": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "port": 4001
+  },
+  "indexer": {
+    "url": "http://localhost:8980",
+    "token": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "port": 8980
+  },
+  "kmd": {
+    "url": "http://localhost:4002",
+    "token": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "port": 4002
+  },
+  "accounts": [
+    {
+      "name": "DefaultAccount",
+      "address": "HZ57J3K46JIJXILONBBZOHX6BKPXEM2VVXNRFSUED6DKFD5ZD24PMJ3MVA",
+      "mnemonic": "analyst decade album recall stem run cage ozone human pepper once insect grain attempt armed name acoustic hood short stove wagon spawn pepper abstract above",
+      "amount": 1000000000000
+    }
+  ]
+}

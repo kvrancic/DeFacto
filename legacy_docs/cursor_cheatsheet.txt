@@ -1,0 +1,51 @@
+==============================
+   CURSOR AI CHEAT SHEET
+==============================
+
+🚀 Core Functionalities
+------------------------
+1. Autocomplete
+   - AI suggests code as you type (works out of the box).
+
+2. Inline AI Edit
+   - Highlight code → Cmd/Ctrl + K → type instruction (e.g., "make this async").
+
+3. Chat with AI (Ask Mode)
+   - Cmd/Ctrl + L → open sidebar to ask about code, docs, or explanations.
+
+4. Agent Mode (Multi-file tasks)
+   - Cmd/Ctrl + I → give a higher-level request (e.g., "Add JWT auth to this project").
+
+5. Repo-wide Context
+   - AI understands your whole repo, not just the open file.
+
+6. Git & Terminal Integration
+   - Use Git panel or terminal inside Cursor.
+   - AI can write commit messages and explain logs.
+
+------------------------
+🎹 Keyboard Shortcuts
+------------------------
+- Cmd/Ctrl + K → Inline AI Edit
+- Cmd/Ctrl + L → Open AI Chat (Ask Mode)
+- Cmd/Ctrl + I → Agent Mode
+- Cmd/Ctrl + Shift + P → Command Palette (search "Cursor:" commands)
+- Cmd/Ctrl + K, Cmd/Ctrl + S → Keyboard Shortcuts editor
+
+------------------------
+🛠️ Practical Use Cases
+------------------------
+- Refactor code: highlight → Cmd/Ctrl + K → "refactor into a class"
+- Explain code: Cmd/Ctrl + L → "explain this function"
+- Generate tests: Cmd/Ctrl + I → "write unit tests for this file"
+- Debugging: paste error log into chat → "fix this error"
+- Commit help: highlight changes → Cmd/Ctrl + K → "write commit message"
+
+------------------------
+💡 Pro Tips
+------------------------
+- Use Inline Edit (K) for quick changes in one file.
+- Use Chat (L) for Q&A and documentation help.
+- Use Agent (I) for bigger tasks spanning multiple files.
+- Use Command Palette (Shift + Cmd/Ctrl + P) to find hidden settings.
+- Combine Git integration + AI for smart commits.

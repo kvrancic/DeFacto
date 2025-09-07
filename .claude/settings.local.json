@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/karlovrancic/**)",
+      "Bash(ruby --version)",
+      "Bash(export:*)",
+      "WebFetch(domain:dev.algorand.co)",
+      "WebFetch(domain:github.com)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx shadcn@latest init:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx tsc:*)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(PYTHONPATH=/Users/karlovrancic/Desktop/ModChains/api python src/main.py)",
+      "Bash(curl:*)",
+      "Bash(python:*)",
+      "Bash(algokit:*)",
+      "Bash(brew install:*)",
+      "Bash(sudo mkdir:*)",
+      "Bash(sudo chown:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

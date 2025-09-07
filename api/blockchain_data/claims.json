@@ -1,0 +1,38 @@
+{
+  "1": {
+    "claim_id": 1,
+    "ipfs_hash": "QmTest123Test123Test123Test123Test123Test123",
+    "category": "technology",
+    "status": "UNVERIFIED",
+    "submitted_at": 1757255586,
+    "block_height": 1,
+    "yes_votes": 0,
+    "no_votes": 0,
+    "total_stake": 0,
+    "voting_ends_at": 1757341986
+  },
+  "2": {
+    "claim_id": 2,
+    "ipfs_hash": "QmTest123Test123Test123Test123Test123Test123",
+    "category": "technology",
+    "status": "UNVERIFIED",
+    "submitted_at": 1757255599,
+    "block_height": 2,
+    "yes_votes": 0,
+    "no_votes": 0,
+    "total_stake": 0,
+    "voting_ends_at": 1757341999
+  },
+  "3": {
+    "claim_id": 3,
+    "ipfs_hash": "Qm5f6115b1a0c63041ce12ea661d06137a16d3de04836c",
+    "category": "technology",
+    "status": "UNVERIFIED",
+    "submitted_at": 1757255627,
+    "block_height": 3,
+    "yes_votes": 0,
+    "no_votes": 0,
+    "total_stake": 0,
+    "voting_ends_at": 1757342027
+  }
+}

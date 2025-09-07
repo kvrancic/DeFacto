@@ -1,0 +1,129 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: defacto
+      POSTGRES_PASSWORD: defacto123
+      POSTGRES_DB: defacto
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U defacto"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # IPFS Node
+  ipfs:
+    image: ipfs/kubo:latest
+    environment:
+      IPFS_PROFILE: server
+    ports:
+      - "5001:5001"  # API
+      - "8080:8080"  # Gateway
+      - "4001:4001"  # Swarm
+    volumes:
+      - ipfs_data:/data/ipfs
+      - ipfs_staging:/export
+    healthcheck:
+      test: ["CMD-SHELL", "ipfs dag stat /ipfs/QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # API Service
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://defacto:defacto123@postgres:5432/defacto
+      - REDIS_URL=redis://redis:6379
+      - IPFS_API_URL=http://ipfs:5001
+      - ALGORAND_NODE_URL=http://host.docker.internal:4001
+      - ALGORAND_INDEXER_URL=http://host.docker.internal:8980
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      ipfs:
+        condition: service_healthy
+    volumes:
+      - ./api:/app
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    profiles:
+      - full
+
+  # ML Service
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - DATABASE_URL=postgresql://defacto:defacto123@postgres:5432/defacto
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./ml-service:/app
+      - ml_models:/models
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8001 --reload
+    profiles:
+      - full
+      - ml
+
+  # Frontend (for production-like testing)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_ALGORAND_NETWORK=localnet
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    command: npm run dev
+    profiles:
+      - full
+      - frontend
+
+volumes:
+  postgres_data:
+  redis_data:
+  ipfs_data:
+  ipfs_staging:
+  ml_models:
+
+networks:
+  default:
+    name: defacto-network

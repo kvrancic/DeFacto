@@ -1,0 +1,4 @@
+algorand-python==1.0.0
+py-algorand-sdk==2.5.0
+pyteal==0.26.1
+beaker-pyteal==1.1.1
