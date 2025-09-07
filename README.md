@@ -6,13 +6,9 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Live%20on%20TestNet-green)]()
 
-## 🎬 Video Demo
+## 🎬 Detailed Video Demo
 
-https://github.com/user-attachments/assets/demo.mp4
-
-*Watch our 2-minute demo showing real-time truth verification, prediction markets, and the complete user journey from claim submission to validation rewards.*
-
-
+https://github.com/user-attachments/assets/8bec11e2-476e-4dbd-b7dc-dc1555348129
 
 ## 🎯 The Problem We're Solving
 
