@@ -21,7 +21,8 @@
       "Bash(algokit:*)",
       "Bash(brew install:*)",
       "Bash(sudo mkdir:*)",
-      "Bash(sudo chown:*)"
+      "Bash(sudo chown:*)",
+      "Bash(lsof:*)"
     ],
     "deny": [],
     "ask": []

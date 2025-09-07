@@ -28,3 +28,9 @@ Thumbs.db
 
 # Logs
 *.log
+DEMO_VIDEO_SCRIPT.md
+
+package.json
+CLAUDE.MD
+.algokit/
+.claude/
